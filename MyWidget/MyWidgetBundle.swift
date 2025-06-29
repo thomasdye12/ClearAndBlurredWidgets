@@ -17,5 +17,6 @@ struct MyWidgetBundle: WidgetBundle {
         MyNormalWidget()
         MyClearWidget()
         MyBlurWidget()
+        AnalogClockWidget()
     }
 }

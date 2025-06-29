@@ -10,6 +10,7 @@
 		4FADB9992C9680000014E725 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FADB9982C967FFF0014E725 /* WidgetKit.framework */; };
 		4FADB99B2C9680000014E725 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FADB99A2C9680000014E725 /* SwiftUI.framework */; };
 		4FADB9A62C9680010014E725 /* MyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4FADB9962C967FFF0014E725 /* MyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E9FBCC8B2E10D5D600B1482E /* ClockRotationEffect.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FBCC8A2E10D5D600B1482E /* ClockRotationEffect.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		4FADB9962C967FFF0014E725 /* MyWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MyWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FADB9982C967FFF0014E725 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		4FADB99A2C9680000014E725 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		E9FBCC8A2E10D5D600B1482E /* ClockRotationEffect.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ClockRotationEffect.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -85,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FADB99B2C9680000014E725 /* SwiftUI.framework in Frameworks */,
+				E9FBCC8B2E10D5D600B1482E /* ClockRotationEffect.xcframework in Frameworks */,
 				4FADB9992C9680000014E725 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,6 +119,7 @@
 			children = (
 				4FADB9982C967FFF0014E725 /* WidgetKit.framework */,
 				4FADB99A2C9680000014E725 /* SwiftUI.framework */,
+				E9FBCC8A2E10D5D600B1482E /* ClockRotationEffect.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

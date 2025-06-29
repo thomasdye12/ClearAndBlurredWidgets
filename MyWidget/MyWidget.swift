@@ -4,7 +4,6 @@
 //
 //  Created by Thomas Dye on 6/26/25.
 //
-
 import WidgetKit
 import SwiftUI
 
@@ -95,3 +94,129 @@ struct MyBlurWidget: Widget {
         .description("This is an example widget.")
     }
 }
+
+struct AnalogClockWidget: Widget {
+    let kind: String = "MyClearWidget"
+
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+            EntryView(entry: entry)
+        }
+        .configurationDisplayName("Analog Clock Widget")
+        .description("Display an analog clock that animates the rotation of its hands.")
+//        .supportedFamilies([.systemSmall])
+    }
+}
+
+
+import ClockRotationEffect
+import SwiftUI
+
+extension AnalogClockWidget {
+    struct EntryView: View {
+        let entry: SimpleEntry
+
+        var body: some View {
+            contentView
+        }
+    }
+}
+
+// MARK: - Content
+
+extension AnalogClockWidget.EntryView {
+    private var contentView: some View {
+        ZStack {
+            faceView
+            hourHandView
+            minuteHandView
+            secondHandView
+            knobView
+        }
+    }
+
+    private var faceView: some View {
+        Circle()
+            .fill(.background)
+            .stroke(.gray)
+            .frame(width: 200, height: 200)
+            .frame(maxWidth: .infinity)
+    }
+
+    private var hourHandView: some View {
+        RoundedRectangle(cornerRadius: 10)
+            .fill(gradient())
+            .frame(width: 4, height: 50)
+            .clockRotation(.hourHand)
+    }
+
+    private var minuteHandView: some View {
+        RoundedRectangle(cornerRadius: 10)
+            .fill(gradient())
+            .frame(width: 3, height: 170)
+            .clockRotation(.miniuteHand)
+    }
+
+    private var secondHandView: some View {
+        RoundedRectangle(cornerRadius: 10)
+            .fill(gradient())
+            .frame(width: 2, height: 190)
+            .clockRotation(.secondHand)
+    }
+
+    private var knobView: some View {
+        Circle()
+            .fill(.brown)
+            .frame(width: 3, height: 3)
+    }
+}
+
+// MARK: - Helpers
+
+extension AnalogClockWidget.EntryView {
+    private func gradient() -> LinearGradient {
+        .init(
+            gradient: .init(
+                stops: [
+                    .init(color: .brown, location: 0.5),
+                    .init(color: .clear, location: 0.5)
+                ]
+            ),
+            startPoint: .top,
+            endPoint: .bottom
+        )
+    }
+}
+
+extension View {
+    fileprivate func clockRotation(_ period: ClockRotationPeriod) -> some View {
+        modifier(
+            ClockRotationModifier(
+                period: period,
+                timezone: .current,
+                anchor: .center
+            )
+        )
+    }
+}
+
+extension AnalogClockWidget {
+    struct Entry: TimelineEntry {
+        var date: Date = .now
+    }
+}
+
+// MARK: - Data
+
+extension AnalogClockWidget.Entry {
+    static var placeholder: Self {
+        .init()
+    }
+}
+
+#Preview(as: .systemMedium) {
+    AnalogClockWidget()
+} timeline: {
+    AnalogClockWidget.Entry.placeholder
+}
+
